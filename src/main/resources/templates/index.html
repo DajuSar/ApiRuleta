@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container mt-4">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>CANTIDAD</th>
+					<th>APOSTADO</th>
+					<th>RESULTADO</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="bet:${bets}">
+					<td th:text="${bet.id}"></td>
+					<td th:text="${bet.amount}"></td>
+					<td th:text="${bet.bet}"></td>
+					<td th:text="${bet.result}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
