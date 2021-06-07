@@ -21,14 +21,15 @@ public class RouletteService implements IrouletteService{
 		return (List<Roulette>) data.findAll();
 	}
 	@Override
-	public Optional<Roulette> toListoIds(int id) {
+	public Optional<Roulette> findRoulette(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return data.findById(id);
 	}
 	@Override
 	public int save(Roulette roulette) {
 		// TODO Auto-generated method stub
-		return 0;
+		Roulette saveRoulette = data.save(roulette);
+		return saveRoulette.getId();
 	}
 	@Override
 	public void delete(int id) {

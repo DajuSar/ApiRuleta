@@ -2,26 +2,35 @@ package com.masiv.ruletaAPI.controllers;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.masiv.ruletaAPI.interfaceServices.IrouletteService;
 import com.masiv.ruletaAPI.model.Roulette;
 
-@Controller
+@RestController
 @RequestMapping
 public class RouletteController {
 
 	@Autowired
 	private IrouletteService rouletteService;
-	@GetMapping("/rouletteList")
-	public String toListRoulettes(Model model) {
+	@GetMapping("/roulettesList")
+	public List<Roulette> toListRoulettes() {
 		List<Roulette> roulettes = rouletteService.toList();
-		model.addAttribute("roulettes", roulettes);
 		
-		return "roulettes";
+		return roulettes;
+	}
+	
+	@PostMapping("/saveRoulette")
+	public int save(@RequestBody Roulette roulette) {
+		return rouletteService.save(roulette);
 	}
 }

@@ -1,9 +1,13 @@
 package com.masiv.ruletaAPI.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +18,8 @@ public class Roulette {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private boolean open;
+    @OneToMany(mappedBy = "roulette", cascade = CascadeType.ALL)
+    List<Bet> bets;
     public Roulette() {}
 	public Roulette(int id, boolean open) {
 		super();
