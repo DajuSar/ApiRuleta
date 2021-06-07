@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masiv.ruletaAPI.interfaceServices.IbetService;
-import com.masiv.ruletaAPI.interfaceServices.IuserService;
 import com.masiv.ruletaAPI.interfaces.IBet;
-import com.masiv.ruletaAPI.interfaces.IUser;
 import com.masiv.ruletaAPI.model.Bet;
 import com.masiv.ruletaAPI.model.Roulette;
 import com.masiv.ruletaAPI.model.User;
@@ -29,20 +27,13 @@ public class BetService implements IbetService {
 		return (List<Bet>) dataBet.findAll();
 	}
 	@Override
-	public Optional<Bet> toListIds(int id) {
-		return null;
-	}
-	@Override
 	public Bet save(Bet bet, int idUser, int idRoulette) {
 		Optional<User> user = userService.findUser(idUser);
 		Optional<Roulette> roulette = rouletteService.findRoulette(idRoulette);
 		bet.setUser(user.get());
 		bet.setRoulette(roulette.get());
 		Bet saveBet = dataBet.save(bet);
+		
 		return saveBet;
 	}
-	@Override
-	public void delete(int id) {
-	}
-	
 }

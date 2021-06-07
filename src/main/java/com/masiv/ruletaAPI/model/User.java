@@ -1,6 +1,5 @@
 package com.masiv.ruletaAPI.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -19,7 +18,7 @@ public class User {
 	private int id;
 	private double credits;
 	@OneToMany(mappedBy = "user")
-	List<Bet> bets;
+	private List<Bet> bets;
 	public User() {}
 	public User(int id, double credits) {
 		super();
@@ -27,18 +26,17 @@ public class User {
 		this.credits = credits;
 	}
 	public int getId() {
+		
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
 	public double getCredits() {
+		
 		return credits;
 	}
 	public void setCredits(double credits) {
 		this.credits = credits;
 	}
-
-	
-	
 }

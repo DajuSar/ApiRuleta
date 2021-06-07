@@ -1,5 +1,8 @@
 package com.masiv.ruletaAPI.controllers;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,17 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masiv.ruletaAPI.interfaceServices.IbetService;
-import com.masiv.ruletaAPI.interfaceServices.IrouletteService;
 import com.masiv.ruletaAPI.model.Bet;
-import com.masiv.ruletaAPI.model.Roulette;
-
-import java.util.List;
-
-import javax.websocket.server.PathParam;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 
 @RestController
 @RequestMapping
@@ -32,14 +25,9 @@ public class APIController {
 		List<Bet> bets = betService.toList();
 		return bets;
 	}
-	
 	@PostMapping("/saveBet/{idRoulette}/")
 	public Bet save(@RequestBody Bet bet, @RequestHeader("id-user") int idUser, @PathVariable int idRoulette) {
 		
 		return betService.save(bet, idUser, idRoulette);
 	}
-	
-	
-
-	
 }
