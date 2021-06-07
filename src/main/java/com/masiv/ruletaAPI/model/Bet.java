@@ -17,9 +17,7 @@ public class Bet {
 	private int number;
 	private short color;
 	private double result;
-	
 	public Bet() {}
-	
 	public Bet(int id, double amount, int number, short color) {
 		super();
 		this.id = id;
@@ -28,36 +26,40 @@ public class Bet {
 		this.color = color;
 	}
 	public int getId() {
+		
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
 	public double getAmount() {
+		
 		return amount;
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	public int getNumber() {
+		
 		return number;
 	}
 	public void setNumber(int number) {
 		this.number = number;
 	}
 	public short getColor() {
+		
 		return color;
 	}
 	public void setColor(short color) {
 		this.color = color;
 	}
 	public double getResult() {
+		
 		return result;
 	}
 	public void setResult(double result) {
 		this.result = result;
 	}
-
 	public String getBet() {
 		if(number > 0) {
 			return ""+number;
@@ -65,6 +67,4 @@ public class Bet {
 			return color==0? "Negro": "Blanco";
 		}
 	}
-	
-
 }

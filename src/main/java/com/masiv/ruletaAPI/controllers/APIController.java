@@ -4,9 +4,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.masiv.ruletaAPI.interfaceServices.IbetService;
+import com.masiv.ruletaAPI.interfaceServices.IrouletteService;
 import com.masiv.ruletaAPI.model.Bet;
+import com.masiv.ruletaAPI.model.Roulette;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +19,14 @@ import org.springframework.ui.Model;
 public class APIController {
 	
 	@Autowired
-	private IbetService service;
-	
+	private IbetService betService;
 	@GetMapping("/betsList")
 	public String  toList(Model model) {
-		List<Bet> bets = service.toList();
+		List<Bet> bets = betService.toList();
 		model.addAttribute("bets", bets);
-		System.out.println(Arrays.asList(bets));
+		
 		return "index";
 	}
+
+	
 }

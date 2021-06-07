@@ -3,7 +3,7 @@ package com.masiv.ruletaAPI.interfaces;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.masiv.ruletaAPI.model.Bet;
+import com.masiv.ruletaAPI.model.Roulette;
 
 @Repository
-public interface IBet extends CrudRepository<Bet, Integer>{}
+public interface IRoulette extends CrudRepository<Roulette, Integer>{}

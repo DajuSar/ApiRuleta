@@ -6,27 +6,27 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.masiv.ruletaAPI.interfaceServices.IbetService;
-import com.masiv.ruletaAPI.interfaces.IBet;
-import com.masiv.ruletaAPI.model.Bet;
+import com.masiv.ruletaAPI.interfaceServices.IrouletteService;
+import com.masiv.ruletaAPI.interfaces.IRoulette;
+import com.masiv.ruletaAPI.model.Roulette;
 
 @Service
-public class BetService implements IbetService {
+public class RouletteService implements IrouletteService{
 
 	@Autowired
-	private IBet data;
+	private IRoulette data;
 	@Override
-	public List<Bet> toList() {
+	public List<Roulette> toList() {
 		// TODO Auto-generated method stub
-		return (List<Bet>) data.findAll();
+		return (List<Roulette>) data.findAll();
 	}
 	@Override
-	public Optional<Bet> toListIds(int id) {
+	public Optional<Roulette> toListoIds(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
-	public int save(Bet bet) {
+	public int save(Roulette roulette) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -34,5 +34,5 @@ public class BetService implements IbetService {
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 	}
-	
+
 }
