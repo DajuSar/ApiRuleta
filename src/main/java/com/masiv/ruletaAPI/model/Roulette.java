@@ -20,20 +20,25 @@ public class Roulette {
 	private boolean open;
 	@OneToMany(mappedBy = "roulette", cascade = CascadeType.ALL)
 	private List<Bet> bets;
+
 	public Roulette() {
 	}
+
 	public Roulette(int id, boolean open) {
 		super();
 		this.id = id;
 		this.open = open;
 	}
+
 	public int getId() {
-		
+
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getOpen() {
 
 		return open ? "Abierta" : "Cerrada";
@@ -42,18 +47,22 @@ public class Roulette {
 	public void setOpen(boolean open) {
 		this.open = open;
 	}
+
 	public boolean isOpen() {
-		
+
 		return open;
 	}
+
 	public List<Bet> giveBets() {
 		calculateResults();
-		
+
 		return bets;
 	}
+
 	public void setBets(List<Bet> bets) {
 		this.bets = bets;
 	}
+
 	public void calculateResults() {
 		int maxNumber = 36;
 		int numberResult = (int) Math.round(Math.random() * (maxNumber));
