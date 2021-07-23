@@ -12,12 +12,13 @@ import com.masiv.ruletaAPI.model.User;
 @RestController
 @RequestMapping
 public class UserController {
-	
+
 	@Autowired
 	private IuserService userService;
+
 	@PostMapping("/saveUser")
 	public int save(@RequestBody User user) {
-		
+
 		return userService.save(user);
 	}
 }

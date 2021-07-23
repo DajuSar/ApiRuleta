@@ -20,7 +20,7 @@ public class RouletteService implements IrouletteService {
 
 	@Override
 	public List<Roulette> toList() {
-		
+
 		return (List<Roulette>) data.findAll();
 	}
 
@@ -33,7 +33,7 @@ public class RouletteService implements IrouletteService {
 	public int save(Roulette roulette) {
 		// TODO Auto-generated method stub
 		Roulette saveRoulette = data.save(roulette);
-		
+
 		return saveRoulette.getId();
 	}
 
@@ -49,12 +49,13 @@ public class RouletteService implements IrouletteService {
 			Roulette updatedRoulette = roulette.get();
 			updatedRoulette.setOpen(toggle);
 			data.save(updatedRoulette);
-			
-			return "Roulette " + (toggle? "opened": "closed") +" succesfully";
+
+			return "Roulette " + (toggle ? "opened" : "closed") + " succesfully";
 		}
-		
-		return "Failed to" + (toggle? "open": "close") + " roulette. The roulette doesn't exist";
+
+		return "Failed to" + (toggle ? "open" : "close") + " roulette. The roulette doesn't exist";
 	}
+
 	@Override
 	public List<Bet> listBets(int idRoulette) {
 		List<Bet> bets = new ArrayList<Bet>();
@@ -64,7 +65,7 @@ public class RouletteService implements IrouletteService {
 			bets = foundRoulette.giveBets();
 			return bets;
 		}
-		
+
 		return bets;
 	}
 

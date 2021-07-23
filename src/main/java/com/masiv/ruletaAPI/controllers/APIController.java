@@ -17,17 +17,19 @@ import com.masiv.ruletaAPI.model.Bet;
 @RestController
 @RequestMapping
 public class APIController {
-	
+
 	@Autowired
 	private IbetService betService;
+
 	@GetMapping("/betsList")
-	public List<Bet>  toList() {
+	public List<Bet> toList() {
 		List<Bet> bets = betService.toList();
 		return bets;
 	}
+
 	@PostMapping("/saveBet/{idRoulette}/")
 	public Bet save(@RequestBody Bet bet, @RequestHeader("id-user") int idUser, @PathVariable int idRoulette) {
-		
+
 		return betService.save(bet, idUser, idRoulette);
 	}
 }

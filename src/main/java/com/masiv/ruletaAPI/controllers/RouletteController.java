@@ -21,27 +21,31 @@ public class RouletteController {
 
 	@Autowired
 	private IrouletteService rouletteService;
+
 	@GetMapping("/roulettesList")
 	public List<Roulette> toListRoulettes() {
 		List<Roulette> roulettes = rouletteService.toList();
-		
+
 		return roulettes;
 	}
+
 	@PutMapping("/open/{idRoulette}/")
 	public String openRoulette(@PathVariable int idRoulette) {
-		
+
 		return rouletteService.toggleRoulette(idRoulette, true);
 	}
+
 	@PostMapping("/saveRoulette")
 	public int save(@RequestBody Roulette roulette) {
-		
+
 		return rouletteService.save(roulette);
 	}
+
 	@PutMapping("/close/{idRoulette}/")
-	public List<Bet> closeRoulette(@PathVariable int idRoulette){
+	public List<Bet> closeRoulette(@PathVariable int idRoulette) {
 		rouletteService.toggleRoulette(idRoulette, false);
 		List<Bet> bets = rouletteService.listBets(idRoulette);
-		
+
 		return bets;
 	}
 }

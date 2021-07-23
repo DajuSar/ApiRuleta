@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.masiv.ruletaAPI.model.Roulette;
 
 @Repository
-public interface IRoulette extends CrudRepository<Roulette, Integer>{}
+public interface IRoulette extends CrudRepository<Roulette, Integer> {
+}

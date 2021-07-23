@@ -26,6 +26,7 @@ public class BetService implements IbetService {
 	public List<Bet> toList() {
 		return (List<Bet>) dataBet.findAll();
 	}
+
 	@Override
 	public Bet save(Bet bet, int idUser, int idRoulette) {
 		Optional<User> user = userService.findUser(idUser);
@@ -33,7 +34,7 @@ public class BetService implements IbetService {
 		bet.setUser(user.get());
 		bet.setRoulette(roulette.get());
 		Bet saveBet = dataBet.save(bet);
-		
+
 		return saveBet;
 	}
 }

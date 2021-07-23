@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.masiv.ruletaAPI.model.User;
 
 @Repository
-public interface IUser extends CrudRepository<User, Integer>{}
+public interface IUser extends CrudRepository<User, Integer> {
+}

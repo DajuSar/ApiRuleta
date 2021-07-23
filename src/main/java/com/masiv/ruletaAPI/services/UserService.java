@@ -10,19 +10,21 @@ import com.masiv.ruletaAPI.interfaces.IUser;
 import com.masiv.ruletaAPI.model.User;
 
 @Service
-public class UserService implements IuserService{
+public class UserService implements IuserService {
 
 	@Autowired
 	private IUser data;
+
 	@Override
 	public Optional<User> findUser(int idUser) {
 		return data.findById(idUser);
 	}
+
 	@Override
 	public int save(User user) {
 		// TODO Auto-generated method stub
 		User saveUser = data.save(user);
 		return saveUser.getId();
 	}
-	
+
 }
